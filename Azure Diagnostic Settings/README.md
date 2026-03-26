@@ -91,7 +91,7 @@ The script:
 Preview what will be deleted without making any changes:
 
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -DryRun
 ```
@@ -101,7 +101,7 @@ Preview what will be deleted without making any changes:
 Remove all diagnostic settings that currently point to an old Log Analytics Workspace:
 
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -LogAnalyticsWorkspaceId "/subscriptions/12345678-1234-1234-1234-123456789012/resourcegroups/my-rg/providers/microsoft.operationalinsights/workspaces/old-law" `
     -ExportBeforeDelete
@@ -112,7 +112,7 @@ Remove all diagnostic settings that currently point to an old Log Analytics Work
 Remove settings only from Virtual Machines in a resource group:
 
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -ResourceGroupName "my-resource-group" `
     -ResourceType "Microsoft.Compute/virtualMachines" `
@@ -124,7 +124,7 @@ Remove settings only from Virtual Machines in a resource group:
 Remove ALL diagnostic settings in a subscription:
 
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -ExportBeforeDelete
 ```
@@ -201,10 +201,11 @@ Scenario: You changed a `DeployIfNotExists` policy to target a new LAW. Now you 
 # List all LAWs in your subscription
 Get-AzOperationalInsightsWorkspace | Select-Object ResourceGroupName, Name, ResourceId
 ```
+You can also copy the resourceId from Azure Portal -> LAW -> JSON view.
 
 **Step 2:** Preview what will be removed
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -LogAnalyticsWorkspaceId "/subscriptions/12345678-1234-1234-1234-123456789012/resourcegroups/my-rg/providers/microsoft.operationalinsights/workspaces/old-law" `
     -DryRun
@@ -212,7 +213,7 @@ Get-AzOperationalInsightsWorkspace | Select-Object ResourceGroupName, Name, Reso
 
 **Step 3:** Review the preview, then execute with backup
 ```powershell
-.\Remove-DiagnosticSettings-Bulk.ps1 `
+.\remove-diagnosticSettings.ps1 `
     -SubscriptionId "Production" `
     -LogAnalyticsWorkspaceId "/subscriptions/12345678-1234-1234-1234-123456789012/resourcegroups/my-rg/providers/microsoft.operationalinsights/workspaces/old-law" `
     -ExportBeforeDelete
