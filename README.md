@@ -4,7 +4,7 @@ A community-driven collection of production-ready and field-tested PowerShell sc
 
 ## 📋 Scripts
 
-### [Azure Diagnostic Settings](./Azure%20Diagnostic%20Settings/)
+### [Azure Diagnostic Settings](./azure-diagnostic-settings/)
 
 **Remove Diagnostic Settings in Bulk**
 
@@ -16,8 +16,8 @@ Safely identify and remove duplicate diagnostic settings from Azure resources in
 - Filter by Log Analytics Workspace, resource group, or resource type  
 - Detailed logging and audit trails  
 
-**Script:** [`remove-diagnosticSettings.ps1`](./Azure%20Diagnostic%20Settings/remove-diagnosticSettings.ps1)  
-**Documentation:** [Full README](./Azure%20Diagnostic%20Settings/README.md)
+**Script:** [`remove-diagnosticSettings.ps1`](./azure-diagnostic-settings/remove-diagnosticSettings.ps1)  
+**Documentation:** [Full README](./azure-diagnostic-settings/README.md)
 
 ---
 
